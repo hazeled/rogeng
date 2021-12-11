@@ -26,15 +26,12 @@ void command_line_arguments::init(int argc, char** argv)
 
         return;
     }
-
     else if (op->non_option_args().empty()) {
         std::cout << "Error! At least one source filename is required" << std::endl;
         helperr::display_usage();
         helperr::display_params();
-
         return;
     }
-
     gFile = (char*)op->non_option_args()[0].c_str();
 }
 
