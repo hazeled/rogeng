@@ -1,0 +1,4 @@
+### DEPS
+
+    - googletest (B)
+    - luacpp

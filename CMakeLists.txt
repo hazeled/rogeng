@@ -1,0 +1,32 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.18)
+
+PROJECT(rogeng)
+
+SET(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+SET(CMAKE_CXX_STANDARD 17)
+
+SET(SRCDIR "source/")
+SET(INCDIR "include/")
+
+set(CMAKE_CXX_STANDARD 17)
+
+INCLUDE(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip
+)
+
+FILE(GLOB_RECURSE SRC ${SRCDIR}/*.c ${SRCDIR}/*.cpp)
+
+ENABLE_TESTING()
+
+ADD_EXECUTABLE(rogeng ${SRC})
+
+TARGET_LINK_LIBRARIES(rogeng gtest_main)
+INCLUDE(GoogleTest)
+gtest_discover_tests(rogeng)
+
+TARGET_INCLUDE_DIRECTORIES(rogeng PUBLIC ${SRCDIR})
+TARGET_INCLUDE_DIRECTORIES(rogeng PUBLIC ${INCDIR})
+
+TARGET_PRECOMPILE_HEADERS(rogeng PUBLIC ${SRCDIR}pch/pch.h)
