@@ -1,0 +1,20 @@
+/--------------\
+|              |
+| LOG OVERVIEW |
+|              |
+\--------------/
+
+A relatively simple module, just used by rogeng for logging output. Can be set to either log to a file or stdout, or disabled altogether
+
+= FUNCTIONS =
+log(...);
+    Will format the arguments, and print them out (along with an indicator of how many ms has passed since the program started).
+    For example:
+            
+            log("this", "is", "a", "test", 15)
+
+        will print out "[000] this is a test 15" if called at the beggining of the program
+
+print(..):
+    The same as log, except it doesn't print the time since initialization. May be very slightly faster.
+

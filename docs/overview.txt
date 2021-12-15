@@ -17,3 +17,4 @@ Every single module will have its own document file inside of "docs/modules/<mod
 Entity component system            : rogeng->get_ecs()
 File handling                      : rogeng->get_file()
 Lua                                : rogeng->get_lua()
+Log                                : Not accessible outside of rogeng

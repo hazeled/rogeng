@@ -1,4 +1,5 @@
 ### DEPS
 
-    - googletest (B)
-    - luacpp
+    - googletest 
+    - luacpp 
+    - liblua5.4-dev 
