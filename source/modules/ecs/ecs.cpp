@@ -15,3 +15,14 @@ ecs_m::~ecs_m()
 {
 
 }
+
+entity_id ecs_m::create()
+{
+    if (deleted_entity_ids.empty()) {
+        return entity_id_counter++;
+    } else {
+        entity_id id = deleted_entity_ids.top();
+        deleted_entity_ids.pop();
+        return id;
+    }
+}

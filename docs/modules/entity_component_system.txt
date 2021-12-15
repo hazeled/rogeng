@@ -13,17 +13,20 @@ that is the size of the amount of types that have been assigned (aligned by 4). 
 then the bitfield will be 4 bits long. If you assign 10 different components, the bitfield will be 12 bits long.
 
 = TYPEDEFS =
-entityId : unsigned int
+entity_id : unsigned int
 
 = FUNCTIONS =
-entityId  create                ()
+entity_id  create                ()
     Returns the ID of a new entity that can then be used to assign types to
 
-void      add  <typeName type>  (entityId id)
+void      destroy               (entity_id id)
+    Will destroy the entity specified by 'id', and free all of it's components
+
+void      add  <typeName type>  (entity_id id)
     A template function that will add the component specified by type to the entity specified by 'id'
 
-bool      has  <typeName type>  (entityId id)
+bool      has  <typeName type>  (entity_id id)
     A template function that wil return true if the entity specified by 'id' has the component specified by type. Otherwise, returns false.
 
-type*     get  <typeName type>  (entityId id)
-    Returns a pointer to the component specified by type on the entity specified by entityId. If the type doesn't exist, it will return a nullptr
+type*     get  <typeName type>  (entity_id id)
+    Returns a pointer to the component specified by type on the entity specified by entity_id. If the type doesn't exist, it will return a nullptr
