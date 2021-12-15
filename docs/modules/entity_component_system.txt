@@ -16,14 +16,14 @@ then the bitfield will be 4 bits long. If you assign 10 different components, th
 entityId : unsigned int
 
 = FUNCTIONS =
-entityId create ()
+entityId  create                ()
     Returns the ID of a new entity that can then be used to assign types to
 
-void add <typeName type> (entityId id)
+void      add  <typeName type>  (entityId id)
     A template function that will add the component specified by type to the entity specified by 'id'
 
-bool has <typeName type> (entityId id)
+bool      has  <typeName type>  (entityId id)
     A template function that wil return true if the entity specified by 'id' has the component specified by type. Otherwise, returns false.
 
-type* get <typeName type> (entityId id)
+type*     get  <typeName type>  (entityId id)
     Returns a pointer to the component specified by type on the entity specified by entityId. If the type doesn't exist, it will return a nullptr

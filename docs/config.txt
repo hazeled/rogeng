@@ -1,0 +1,17 @@
+/-------------------\
+|                   |
+| CONFIG.H OVERVIEW |
+|                   |
+\-------------------/
+
+Every option in config.h is defined through a #define, so an option here listed as "TEST_OPTION" will translate to "#define TEST_OPTION" in config.h,
+and "TEST_VALUE <value>" to "#define TEST_VALUE <value>"
+
+= OPTIONS = 
+
+- LOG -
+    LOG_TIME        : If defined, milliseconds since start time will be printed when logging
+
+- ECS -
+    
+
