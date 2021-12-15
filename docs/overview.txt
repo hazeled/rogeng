@@ -1,0 +1,19 @@
+/-----------------\
+|                 |
+| ROGENG OVERVIEW |
+|                 |
+\-----------------/
+
+Rogeng is modular engine built up of multiple different "Modules", which are just classes with a single purpose. 
+For example, the Entity Component System (ECS) is one of these "Modules" that interracts with the rest of the engine.
+Every single module is held by the "Rogeng" class instance, and can be accessed in either C++ or Lua. 
+
+Some modules will themselves be built up of "Sub-modules", which are just modules FOR the modules. The purpose of this is
+to break down complex into neatly boxed (And easily testable) classes.
+
+Every single module will have its own document file inside of "docs/modules/<module_name>"
+
+= ENGINE MODULES =- stars indicate which ones are finished
+Entity component system            : rogeng->get_ecs()
+File handling                      : rogeng->get_file()
+Lua                                : rogeng->get_lua()

@@ -1,0 +1,29 @@
+/--------------\
+|              |
+| ECS OVERVIEW |
+|              |
+\--------------/
+
+rogeng->get_ecs();
+
+The ECS is the entity component system. It handles adding arbitrary struct(s) to an "Entity", which is just a container for pointers said structs.
+
+Behind the scenes, a template function will determine the ID for every type passed to it. Then, a bitfield will be created (at runtime) for every single entity
+that is the size of the amount of types that have been assigned (aligned by 4). This means that if assign entity/entities three different components, 
+then the bitfield will be 4 bits long. If you assign 10 different components, the bitfield will be 12 bits long.
+
+= TYPEDEFS =
+entityId : unsigned int
+
+= FUNCTIONS =
+entityId create ()
+    Returns the ID of a new entity that can then be used to assign types to
+
+void add <typeName type> (entityId id)
+    A template function that will add the component specified by type to the entity specified by 'id'
+
+bool has <typeName type> (entityId id)
+    A template function that wil return true if the entity specified by 'id' has the component specified by type. Otherwise, returns false.
+
+type* get <typeName type> (entityId id)
+    Returns a pointer to the component specified by type on the entity specified by entityId. If the type doesn't exist, it will return a nullptr
