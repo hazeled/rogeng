@@ -3,12 +3,16 @@
 #include <stack>
 #include <vector>
 #include <cstdint>
+#include <memory>
+#include <bitset>
+// A temporary fix. Eventually, we want to figure out (At compile time) how many components are being added, and create a bitfield from that
+#define MAX_COMPONENT_TYPES 24
 
 // An entity id
 typedef uint16_t entity_id;
 
 struct entity_desc {
-    
+    std::bitset<MAX_COMPONENT_TYPES> components_flags;
 };
 
 class rogeng;
@@ -28,6 +32,10 @@ public:
 private:
     rogeng* re;
 
+    // Table of entityp pointers, can be accessed with entity_id
+    std::vector<entity_desc*> entities;
+    
+    
     /* NOTE: The classic way of doing entity IDs is to fill up a
      * queue with all possible ids and pull from the front. Then,
      * when an entity is deleted, you can put the ID at the back 

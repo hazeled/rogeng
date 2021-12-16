@@ -18,11 +18,16 @@ ecs_m::~ecs_m()
 
 entity_id ecs_m::create()
 {
+    entity_id id;
     if (deleted_entity_ids.empty()) {
-        return entity_id_counter++;
+        id = entity_id_counter++;
     } else {
-        entity_id id = deleted_entity_ids.top();
+        id = deleted_entity_ids.top();
         deleted_entity_ids.pop();
-        return id;
     }
+
+    entity_desc* new_entity = new entity_desc();
+    entities.push_back(new_entity);
+
+    return id;
 }
